@@ -8,16 +8,94 @@
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-import numpy as np
-from PyQt5.QtWidgets import QSizePolicy
-
 import sys
-import time
 import os
 import matplotlib.pyplot as plt
 import numpy as np
 from PyQt5.QtWidgets import QWidget, QApplication, QGridLayout, QGroupBox, QFormLayout, QPushButton, QLabel, QLineEdit, \
-    QVBoxLayout, QTableWidget, QComboBox, QTableWidgetItem, QSizePolicy, QPlainTextEdit
+    QVBoxLayout, QTableWidget, QTableWidgetItem, QSizePolicy, QPlainTextEdit
+
+
+
+class PlotCanvas(FigureCanvas):
+
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+
+        FigureCanvas.__init__(self, fig)
+        self.setParent(parent)
+
+        FigureCanvas.setSizePolicy(self,
+                                   QSizePolicy.Expanding,
+                                   QSizePolicy.Expanding)
+        FigureCanvas.updateGeometry(self)
+
+
+        self.axes.set_xlim([-40, 40])
+        self.axes.set_ylim([-40, 40])
+        self.axes.set_aspect('equal')
+        self.x = []
+        self.y = []
+        def onclick(event):
+            self.x.append(np.round(event.xdata))
+            self.y.append(np.round(event.ydata))
+            circle = plt.Circle((event.xdata, event.ydata), 1, color='green')
+            self.axes.add_patch(circle)
+            fig.canvas.draw()  # this line was missing earli
+            print(self.x)
+            print(self.y)
+
+
+        cid = fig.canvas.mpl_connect('button_press_event', onclick)
+
+
+
+
+
+
+
+
+    def interpolate(self):
+
+        x = np.array(self.x)
+        y = np.array(self.y)
+
+
+
+        with open('xpoints.txt', 'a') as f:
+            for i in self.x:
+                f.write(str(i) + ',')
+
+        with open('ypoints.txt', 'a') as f:
+            for i in self.y:
+                f.write(str(i) + ',')
+
+
+        fit = np.polyfit(x, y, len(x) - 1)
+        xx = np.linspace(min(x), max(x))
+        fct = np.poly1d(fit)
+
+        with open('fonction.txt', 'w') as f:
+            f.write(str(fct))
+
+        yy = np.polyval(fit, xx)
+        global ax
+        ax = self.figure.add_subplot(111)
+
+        ax.plot(xx, yy, '-')
+
+
+        ax.set_title('Inetrpolating function')
+        ax.set_xlabel('x coordinates')
+        ax.set_ylabel('f(x) ')
+
+        self.draw()
+
+        return (len(x),str(fct))
+
+
 
 
 class Inter_OTG(QWidget):
@@ -26,30 +104,26 @@ class Inter_OTG(QWidget):
         self.x = []
         self.y = []
         super(Inter_OTG, self).__init__()
+        self.canvas  = PlotCanvas
         self.setGeometry(160, 100, 815, 520)
-        self.setWindowTitle("Easy_interpolation")
+        self.setWindowTitle("H.B Tayeb : Inter_OTG")
         self.grid = QGridLayout()
         self.grid2 = QGridLayout()
-        self.allGB = QGroupBox("settings")
+        self.allGB = QGroupBox("DATA IN/OUT")
         self.allGB.setLayout(self.grid2)
         # -------------------------------------------------
         self.fonct = QPlainTextEdit()
         self.fonct.adjustSize()
 
-        self.combo = QComboBox()
-        itm = ["lagrange", "neville", "newton"]
-        for i in itm:
-            self.combo.addItem(i)
-        self.qb = QGroupBox("Manipulate")
+
+        self.qb = QGroupBox("Polynomial ")
         self.qf = QFormLayout()
-        self.x0 = QLabel("X0 : ")
-        self.x0F = QLineEdit("3")
-        self.start = QPushButton("Start")
-        self.clear = QPushButton("clear")
+
+        self.clear = QPushButton("Clear Data")
 
         # -------------------------------------------------
         self.qb1 = QGroupBox("Load DATA")  # --->
-        self.plotfig = QGroupBox("interpolate")
+        self.plotfig = QGroupBox("the result graph")
         self.qV = QVBoxLayout()
 
         self.table = QTableWidget()
@@ -58,18 +132,15 @@ class Inter_OTG(QWidget):
         self.table.setHorizontalHeaderLabels(["Xi", "Yi"])
         self.m = PlotCanvas(self, width=5, height=4)
         self.load = QPushButton("Load Data")
-        self.interP = QPushButton("interpolate points")
+
         # -------------------------------------------------
         self.getfct = QPushButton("get function")
         self.qb1.setLayout(self.qV)
         self.qV.addWidget(self.table)
         self.qV.addWidget(self.load)
-        self.qV.addWidget(self.interP)
-        self.qf.addRow(self.combo)
-        self.qf.addRow(self.x0, self.x0F)
-        self.qf.addRow(self.start, self.clear)
+
+        self.qf.addRow(self.clear)
         self.qf.addRow(self.fonct)
-        self.qf.addRow(self.getfct)
         self.qb.setLayout(self.qf)
 
         self.qV2 = QVBoxLayout()  # ---->
@@ -83,56 +154,25 @@ class Inter_OTG(QWidget):
         self.setLayout(self.grid)
         # -------------------------------------------------
 
-        self.start.clicked.connect(lambda: self.get_points())
-        self.load.clicked.connect(lambda: self.load_data())
-        self.interP.clicked.connect(lambda: self.m.interpolate())
 
-        # self.fonct.insertPlainText(PlotCanvas.interpolate(self))
+        self.load.clicked.connect(lambda: self.load_data_interpolate())
+
+
+
         self.clear.clicked.connect(lambda: self.clear_data())
         self.getfct.clicked.connect(lambda: self.get_fct())
 
-    def get_fct(self):
-        with open('fonction.txt', 'r') as f:
-            self.fonct.insertPlainText(f.read())
-            # print(f.read())
-
-    def get_points(self):
-        x = []
-        y = []
-
-        def onclick(event):
-
-            x.append(np.round(event.xdata))
-            y.append(np.round(event.ydata))
-            print(x)
-            print(y)
 
 
-        fig, pl = plt.subplots()
-        pl.axis([0, 10, 0, 10])
-
-        cid = fig.canvas.mpl_connect('button_press_event', onclick)
-        # pl.plot(t, 'r')
-        #plt.pause(0.2)
-
-        plt.plot(x, y,'ro')
-        plt.show()
-        with open('xpoints.txt', 'w') as f:
-            for i in x:
-                f.write(str(i) + ',')
-
-        with open('ypoints.txt', 'w') as f:
-            for i in y:
-                f.write(str(i) + ',')
-
-        self.table.setRowCount(len(x))
 
 
     xi = []
     yi = []
 
-    def load_data(self):
-
+    def load_data_interpolate(self):
+        length,fct = self.m.interpolate()
+        self.fonct.insertPlainText(fct)
+        self.table.setRowCount(length)
         global xi
         global yi
 
@@ -164,73 +204,21 @@ class Inter_OTG(QWidget):
 
 
     def clear_data(self):
-        os.remove("xpoints.txt")
-        os.remove("ypoints.txt")
-        os.remove("fonction.txt")
-        self.fonct.clear()
-        for i in range(self.table.rowCount()):
-            for j in range(self.table.columnCount()):
-                self.table.setItem(i, j, QTableWidgetItem("0.0"))
+        try:
+            os.remove("xpoints.txt")
+            os.remove("ypoints.txt")
+            os.remove("fonction.txt")
+            self.fonct.clear()
+            for i in range(self.table.rowCount()):
+                for j in range(self.table.columnCount()):
+                    self.table.setItem(i, j, QTableWidgetItem("0.0"))
 
-        self.xi = []
-        self.yi = []
-        self.table.setRowCount(len(self.xi))
+            self.xi = []
+            self.yi = []
+            self.table.setRowCount(len(self.xi))
 
-
-
-class PlotCanvas(FigureCanvas):
-
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
-
-        FigureCanvas.__init__(self, fig)
-        self.setParent(parent)
-
-        FigureCanvas.setSizePolicy(self,
-                                   QSizePolicy.Expanding,
-                                   QSizePolicy.Expanding)
-        FigureCanvas.updateGeometry(self)
-
-    # def plot(self):
-    #     data = [np.random.random() for i in range(25)]
-    #     ax = self.figure.add_subplot(111)
-    #     ax.plot(data, 'r-')
-    #     ax.set_title('Interpolation ')
-    #     self.draw()
-
-    def interpolate(self):
-        x = np.array(Inter_OTG.xi)
-        y = np.array(Inter_OTG.yi)
-
-        # x0 = float(self.x0F.text())
-        fit = np.polyfit(x, y, len(x) - 1)
-        xx = np.linspace(min(x), max(x))
-        fct = np.poly1d(fit)
-        print(fct)
-        with open('fonction.txt', 'w') as f:
-            f.write(str(fct))
-
-        yy = np.polyval(fit, xx)
-        global ax
-        ax = self.figure.add_subplot(111)
-        ax.plot(xx, yy, '-', x, y, 'ro')
-        ax.set_title('Interpolation')
-        ax.set_xlabel('x coordinates')
-        ax.set_ylabel('f(x) ')
-        ax.axis([min(xx), max(xx), min(yy), max(yy)])
-
-
-        # poly = lagrange(x, y)
-        # f = Polynomial(poly).coef
-        # print(f)
-        # # calculate new x's and y's
-        #
-        # t = np.linspace(0, 20, 100)plt
-
-        self.draw()
-
-        return fct
+        except (IOError,IndexError):
+            print("files already deleted !")
 
 
 
