@@ -13,6 +13,6 @@
     * numpy
     * PyQt5
     
-  ![] (Peek 20-11-2018 01-46.gif)
 
-[![Watch the video](https://www.youtube.com/watch?v=KBaqWhpvays&feature=youtu.be)
+
+[![wath the app](http://img.youtube.com/vi/KBaqWhpvays/0.jpg)](https://youtu.be/KBaqWhpvays)
