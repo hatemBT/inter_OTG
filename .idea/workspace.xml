@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9317bb8b-9b1c-4c3b-8f3b-e0786fa2e211" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonction.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xpoints.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ypoints.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/blockchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/blockchain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inter_OTG.py" beforeDir="false" afterPath="$PROJECT_DIR$/inter_OTG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plotCanvas.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,12 +47,12 @@
           <entry key="dummy" value="23" />
           <entry key="md" value="340" />
           <entry key="py" value="5760" />
-          <entry key="txt" value="63" />
+          <entry key="txt" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="426" />
+          <entry key="PLAIN_TEXT" value="439" />
           <entry key="Python" value="5769" />
         </counts>
       </usages-collector>
@@ -70,7 +60,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inter_OTG.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -82,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -369,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542637010412</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final project">
+      <created>1542674437753</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542674437754</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -403,7 +400,8 @@
     <MESSAGE value="neville est le programme principale" />
     <MESSAGE value="ok" />
     <MESSAGE value="fixing some issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing some issues" />
+    <MESSAGE value="final project" />
+    <option name="LAST_COMMIT_MESSAGE" value="final project" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/points.txt" />
@@ -440,16 +438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inter_OTG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-          <folding>
-            <marker date="1542674341991" expanded="true" signature="1804:1805" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -463,7 +451,17 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inter_OTG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <marker date="1542674341991" expanded="true" signature="1804:1805" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
