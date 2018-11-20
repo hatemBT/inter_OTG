@@ -12,5 +12,6 @@
     * matplotlib
     * numpy
     * PyQt5
- ![](.gif)
+    
+  ![](Peek 20-11-2018 01-46.gif)
 
