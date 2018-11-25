@@ -78,18 +78,6 @@ class PlotCanvas(FigureCanvas):
         print(sf)
 
 
-        try:
-            with open('xpoints.txt', 'a') as f:
-                for i in self.xpts:
-                    f.write(str(i) + ',')
-
-            with open('ypoints.txt', 'a') as f:
-                for i in self.ypts:
-                    f.write(str(i) + ',')
-        except (IOError,IndexError):
-            print("Error saving files !")
-
-
         fit = np.polyfit(x1, yy, len(x1) - 1)
         xx = np.linspace(min(x1), max(x1))
         #fct = np.poly1d(fit)
