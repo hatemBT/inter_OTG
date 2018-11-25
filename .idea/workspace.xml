@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9317bb8b-9b1c-4c3b-8f3b-e0786fa2e211" name="Default Changelist" comment="">
+    <list default="true" id="9317bb8b-9b1c-4c3b-8f3b-e0786fa2e211" name="Default Changelist" comment="optimisation">
+      <change afterPath="$PROJECT_DIR$/.idea/inter_OTG.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Blockchain/blockchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Blockchain/blockchain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Peek 20-11-2018 01-46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonction.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inter_OTG.py" beforeDir="false" afterPath="$PROJECT_DIR$/inter_OTG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xpoints.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ypoints.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/neville.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +42,12 @@
         <counts>
           <entry key="md" value="1" />
           <entry key="py" value="11" />
-          <entry key="txt" value="23" />
+          <entry key="txt" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="26" />
           <entry key="Python" value="11" />
         </counts>
       </usages-collector>
@@ -57,19 +56,19 @@
           <entry key="Python Console" value="9" />
           <entry key="dummy" value="23" />
           <entry key="md" value="341" />
-          <entry key="py" value="7113" />
-          <entry key="txt" value="96" />
+          <entry key="py" value="7114" />
+          <entry key="txt" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="460" />
-          <entry key="Python" value="7122" />
+          <entry key="PLAIN_TEXT" value="472" />
+          <entry key="Python" value="7123" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.create.new" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -79,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inter_OTG.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="208" selection-start-line="208" selection-end-line="208" />
+            <state relative-caret-position="315">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="e#326#406#0" expanded="true" />
               </folding>
@@ -139,7 +138,7 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_COMMON_BRANCH" value="master" />
+    <option name="RECENT_COMMON_BRANCH" value="inter_OTG_v2" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -430,7 +429,21 @@
       <option name="project" value="LOCAL" />
       <updated>1542675637229</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="optimisation">
+      <created>1543166439978</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543166439978</updated>
+    </task>
+    <task id="LOCAL-00013" summary="optimisation">
+      <created>1543167226269</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1543167226269</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -441,7 +454,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30645162" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30645162" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -484,14 +497,15 @@
     <MESSAGE value="fixing some issues" />
     <MESSAGE value="final project" />
     <MESSAGE value="adding gif animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding gif animation" />
+    <MESSAGE value="optimisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimisation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/inter_OTG.py</url>
-          <line>168</line>
+          <line>156</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -509,22 +523,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ypoints.txt" />
     <entry file="file://$PROJECT_DIR$/fonction.txt" />
     <entry file="file://$PROJECT_DIR$/plotCanvas.py" />
-    <entry file="file://$PROJECT_DIR$/xpoints.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inter_OTG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="208" selection-start-line="208" selection-end-line="208" />
-          <folding>
-            <element signature="e#326#406#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python3.7/site-packages/matplotlib/style/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -545,6 +545,22 @@
           <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="42" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xpoints.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ypoints.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inter_OTG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="e#326#406#0" expanded="true" />
           </folding>
         </state>
       </provider>
